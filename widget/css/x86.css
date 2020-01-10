@@ -1,0 +1,137 @@
+
+ body {
+     position: relative;
+     /* background: url(../image/back.jpg); */
+     /*background-color: pink;*/
+     width: 100%;
+     height: 740px;
+     font-family: '黑体';
+     font-size: 0.8em;
+ }
+ /*input {
+	    position: relative;
+	    border: gray solid 1px;
+	    margin: 2px 5px;
+	    width: 90%;
+	    height: 30px;
+	    border-radius: 8px 8px 8px 8px;
+	    box-shadow: 1px 2px 2px #C0C0C0;
+	}*/
+ /*textarea{
+            position: relative;
+            border: gray solid 0.1em;
+            margin: 2px 5px;
+            width:90%;
+            height: 60px;
+            border-radius: 8px 8px 8px 8px;
+            box-shadow: 2px 2px 2px #C0C0C0;
+            font-size: 1.3em;
+            font-weight: 1em;
+        }*/
+
+ p {
+     font-size: 1em;
+     margin: 2px 5px;
+     font-weight: 0;
+     /*     text-shadow: 3px 3px 3px #FF0000; */
+     font-stretch: ultra-expanded;
+ }
+
+ .button {
+     border: gray solid 0.1em;
+     width: 90%;
+     height: 30px;
+     margin: 5px 5px;
+     border-radius: 10px 10px 10px 10px;
+ }
+
+ .a-upload {
+     width: 84%;
+     padding: 4px 10px;
+     height: 20px;
+     line-height: 20px;
+     position: relative;
+     cursor: pointer;
+     color: #888;
+     background: pink;
+     border: 1px solid gray;
+     border-radius: 8px;
+     overflow: hidden;
+     display: inline-block;
+     margin-left: 5px;
+     font-size: 0.6em;
+     *display: inline;
+     *zoom: 1
+ }
+
+ .a-upload input {
+     position: absolute;
+     font-size: 0.3em;
+     right: 0;
+     top: 0;
+     opacity: 0;
+     filter: alpha(opacity=0);
+     cursor: pointer
+ }
+
+ .a-upload:hover {
+     color: #444;
+     background: #eee;
+     border-color: #ccc;
+     text-decoration: none
+ }
+
+ section {
+     position: relative;
+     width: 100%;
+     height: 50px;
+     font-size: 0.7em;
+     padding-left: 25px;
+     margin-top: 25px;
+ }
+
+ .select_the_file {
+     position: relative;
+     display: inline-block;
+     background: #f4cccc;
+     border: 1px solid gray;
+     border-radius: 4px;
+     padding: 4px 12px;
+     overflow: hidden;
+     color: #000000;
+     text-decoration: none;
+     text-indent: 0;
+     line-height: 14px;
+     font-size: 0.8em;
+ }
+
+ .select_the_file input {
+     position: absolute;
+     font-size: 0.8em;
+     right: 0;
+     top: 0;
+     opacity: 0;
+ }
+
+ .select_the_file:hover {
+     background: #AADFFD;
+     border-color: #78C3F3;
+     color: #004974;
+     text-decoration: none;
+ }
+
+ .no_file {
+     margin-left: 0px;
+     position: relative;
+     display: inline-block;
+     /*background: #D0EEFF;
+        border: 1px solid #99D3F5;
+        border-radius: 4px;*/
+     padding: 4px 12px;
+     overflow: hidden;
+     color: #000000;
+     text-decoration: none;
+     text-indent: 0;
+     line-height: 14px;
+     font-size: 0.7em;
+ }

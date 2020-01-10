@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0.0,width=device-width,initial-scale=1.0" />
+	<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+	<title>个人信息frame</title>
+	<link rel="stylesheet" type="text/css" href="../css/api.css" />
+	<link rel="stylesheet" type="text/css" href="../css/aui.css" />
+	<style  type="text/css" >
+    .pg{
+    	position: relative;
+    	width: 85px;
+			height: 85px;
+			text-align: center;
+	   	margin-left: -110px;
+
+			/*border: gray solid 1px;*/
+			border-radius: 50%;
+			-moz-border-radius: 50%;
+			-webkit-border-radius: 50%;
+		  background-color: yellow;
+    }
+		.my_btn{
+			position: relative;
+			width: 80%;
+			height: 40px;
+			margin-left: 10%;
+			margin-top: 20px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="aui-content aui-margin-b-15">
+	 <ul class="aui-list aui-list-in">
+			 <li class="aui-list-header">
+					 基本信息
+			 </li>
+			 <li class="aui-list-item">
+					<div class="aui-list-item-inner" style="height:100px;" onclick="offsetPhotoPg()">
+							<div class="aui-list-item-title">头像：</div>
+							<div class="pg">
+							 <img src="../image/psb.jpg" alt="">
+							</div>
+							<i class="aui-iconfont aui-icon-right"></i>
+					</div>
+			</li>
+			 <li class="aui-list-item">
+					 <div class="aui-list-item-inner">
+							 <div class="aui-list-item-label">
+									 昵称：
+							 </div>
+							 <div class="aui-list-item-input">
+									 <input type="text" value="Lazy_RainBol" placeholder="Name">
+							 </div>
+							 	 <i class="aui-iconfont aui-icon-right"></i>
+					 </div>
+			 </li>
+			 <li class="aui-list-item">
+					 <div class="aui-list-item-inner">
+							 <div class="aui-list-item-label">
+									 性别：
+							 </div>
+							 <div class="aui-list-item-input">
+									 <label><input class="aui-radio" type="radio" name="demo1" checked> 男</label>
+									 <label><input class="aui-radio" type="radio" name="demo1"> 女</label>
+							 </div>
+					 </div>
+			 </li>
+			 <li class="aui-list-item">
+					 <div class="aui-list-item-inner">
+							 <div class="aui-list-item-label">
+									 破壳日：
+							 </div>
+							 <div class="aui-list-item-input" style="text-align:center; padding-top:20px;">
+									 <input type="date" value="1994-02-10" placeholder="1994/02/10">
+							 </div>
+							 	 <i class="aui-iconfont aui-icon-right"></i>
+					 </div>
+			 </li>
+			 <li class="aui-list-item">
+					 <div class="aui-list-item-inner">
+							 <div class="aui-list-item-label">
+									 注册电话：
+							 </div>
+							 <div class="aui-list-item-input">
+									 <input type="text" value="13167868707" placeholder="Name">
+							 </div>
+							 	 <i class="aui-iconfont aui-icon-right"></i>
+					 </div>
+			 </li>
+			 <li class="aui-list-item">
+					 <div class="aui-list-item-inner">
+							 <div class="aui-list-item-label">
+									 邮箱地址：
+							 </div>
+							 <div class="aui-list-item-input">
+									 <input type="email" value="screatren@hotmail.com" placeholder=".....@.....com">
+							 </div>
+							 	 <i class="aui-iconfont aui-icon-right"></i>
+					 </div>
+			 </li>
+			 <li class="aui-list-item">
+					<div class="aui-list-item-inner">
+							<div class="aui-list-item-label">
+									所属公司：
+							</div>
+							<div class="aui-list-item-input">
+									<input type="text" value="重庆酷杰文化科技有限公司" placeholder="Name">
+							</div>
+								<i class="aui-iconfont aui-icon-right"></i>
+					</div>
+			</li>
+			<li class="aui-list-item">
+					<div class="aui-list-item-inner">
+							<div class="aui-list-item-label">
+									公司地址：
+							</div>
+							<div class="aui-list-item-input">
+									<input type="text" value="重庆市渝北区湖山路彩云湖" placeholder="Name">
+							</div>
+								<i class="aui-iconfont aui-icon-right"></i>
+					</div>
+			</li>
+
+
+
+			 <div class="aui-btn aui-btn-info my_btn" >保存（COMMITE）</div>
+
+
+	 </ul>
+</div>
+
+</body>
+
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+//返回个人中心页
+function offsetToPerson_Main(){
+	api.openWin({
+	    name: 'person',
+	    url: '../html/person.html',
+	    pageParam: {
+	        name: 'test'
+	    }
+	});
+}
+//点击修改头像
+function offsetPhotoPg(){
+
+}
+apiready=function(){
+	var windowH = api.winHeight;
+	// var footer_h = $api.offset( $api.dom('footer')).h;
+}
+
+</script>
+</html>

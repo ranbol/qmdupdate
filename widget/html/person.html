@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+	<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+	<title>个人中心</title>
+	<link rel="stylesheet" type="text/css" href="../css/api.css">
+	<link rel="stylesheet" type="text/css" href="../css/aui.css" />
+	<style type="text/css">
+		#person_body {
+			position: relative;
+			width: 100%;
+			height: 800px;
+			background-color: #EAEAEA;
+			font-family: inherit;
+		}
+		.photopg {
+			width: 100px;
+			height: 100px;
+			 background-color:yellowgreen;
+			background-image: url(../image/psb.jpg);
+			border-radius: 50%;
+			-moz-border-radius: 50%;
+			-webkit-border-radius: 50%;
+			position: relative;
+			margin: 0 auto;
+			margin-top: 50px;
+		}
+		.nav_header p{
+			text-align: center;
+			padding-top: 10px;
+			padding-bottom: 10px;
+		}
+
+
+
+		nav .menu .left {
+			position: absolute;
+			width: 25px;
+			height: 25px;
+			margin-left: 10px;
+			text-align: center;
+			margin-top: 10px;
+		}
+
+		nav .menu .right {
+			position: absolute;
+			width: 25px;
+			height: 25px;
+			right: 20px;
+			margin-top: -23px;
+		}
+
+		.menu_first {
+			width: 100%;
+			height: 50px;
+			padding-left: 20px;
+		}
+
+		.font {
+			margin-left: 80px;
+			padding-top: 12px;
+		}
+
+		.aui_hr_my {
+			width: 100%;
+			height: 1px;
+		}
+
+		.my_popup{
+			width:90%;
+			height:100%;
+			margin-left: 5%;
+			margin-top: 00px;
+		}
+	</style>
+</head>
+
+<body id="person_body">
+	<header style="height:80px;" class="aui-bar aui-bar-nav" id="aui-header">
+		<!-- <a class="aui-btn aui-pull-left" tapmode onclick="closeWin()">
+          <span style="margin-top:70px;" class="aui-iconfont aui-icon-left"></span>
+      </a> -->
+		<div style="margin-top:30px;" class="aui-title">个人中心</div>
+	</header>
+	<hr class='aui-hr' />
+	<nav id="nav" style="background-color:#EAEAEA;">
+		<div class="nav_header">
+		  	<div class="photopg">
+		  	</div>
+			  <p>Lazy_RanBol</p>
+		</div>
+		<hr class='aui-hr' />
+	</nav>
+	<footer class="aui-bar aui-bar-tab" id="footer">
+		<div class="aui-bar-tab-item " onclick="offsetclickforme()" tapmode>
+			<i class="aui-iconfont aui-icon-home"></i>
+			<div class="aui-bar-tab-label">首页</div>
+		</div>
+		<div class="aui-bar-tab-item" onclick="offsetclickproduct()" tapmode>
+			<i class="aui-iconfont aui-icon-star"></i>
+			<div class="aui-bar-tab-label">产品服务</div>
+		</div>
+		<div class="aui-bar-tab-item" onclick="offsetclickbxfw()" tapmode>
+			<!-- <div class="aui-badge">99</div> -->
+			<i class="aui-iconfont aui-icon-paper"></i>
+			<div class="aui-bar-tab-label">报修</div>
+		</div>
+		<div class="aui-bar-tab-item  aui-active" onclick="offsetclickperson()" tapmode>
+			<!-- <div class="aui-dot"></div> -->
+			<i class="aui-iconfont aui-icon-my"></i>
+			<div class="aui-bar-tab-label">我的</div>
+		</div>
+	</footer>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/aui-footer.js"></script>
+<script type="text/javascript">
+
+	apiready = function() {
+
+		/*离开页面时关闭窗口*/
+		// api.addEventListener({
+		// 	name: 'viewdisappear'
+		// }, function() {
+		// 	api.closeWin();
+		// });
+		var windowH = api.winHeight;
+		var windowL =api.windowH;
+		api.openFrame({
+		    name: 'person_frame',
+		    url: '../html/person_frame.html',
+		    rect: {
+		        x: 0,
+		        y: 280,
+		        w: 'auto',
+		        h: windowH-330
+		    },
+		    pageParam: {
+		        name: 'test'
+		    },
+		    bounces: true,
+		    bgColor: 'rgba(0,0,0,0)',
+		    vScrollBarEnabled: true,
+		    hScrollBarEnabled: true
+		});
+		api.parseTapmode();
+	}
+</script>
+
+</html>

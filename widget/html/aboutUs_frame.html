@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0.0,width=device-width,initial-scale=1.0" />
+	<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+	<title>联系我们</title>
+	<link rel="stylesheet" type="text/css" href="../css/api.css" />
+	<link rel="stylesheet" type="text/css" href="../css/aui.css" />
+	<link rel="stylesheet" type="text/css" href="../css/x86.css" />
+	<style  type="text/css" >
+	.about-body{
+		height: 800px;
+	}
+	.my-btn{
+ 	  width: 90%;
+		height: 30px;
+		margin-top:50px;
+		margin-left: 5%;
+		letter-spacing: 0.5em;
+		background-color: #33ccff;
+	}
+	</style>
+</head>
+
+<body class="about-body">
+	<header id="header">
+		 <div class="">
+		 	<img src="../image/QMDLOGO.png" alt="">
+		 </div>
+	</header>
+	<nav id="nav">
+		<hr class='aui-hr' />
+		<div class="aui-info aui-margin-t-10 aui-padded-l-10 aui-padded-r-10">
+			<div class="line-top">公司|Company</div>
+	    <div class="aui-info-item">
+	      <span class="aui-margin-l-5">重庆奇梦达科技有限公司</span>
+	        </div>
+	    <!-- <div class="aui-info-item">2015-07-13 22:31</div> -->
+		  <!-- <img src="../../image/demo2.png" style="width:1.5rem" class="aui-img-round" /> -->
+	  </div>
+
+		<hr class='aui-hr' />
+		<div class="aui-info aui-margin-t-10 aui-padded-l-10 aui-padded-r-10">
+			联系电话|Tell
+			<div class="aui-info-item">
+				<span class="aui-margin-l-5">023-63427236</span>
+					</div>
+			<!-- <div class="aui-info-item">2015-07-13 22:31</div> -->
+			<!-- <img src="../../image/demo2.png" style="width:1.5rem" class="aui-img-round" /> -->
+		</div>
+
+		<hr class='aui-hr' />
+		<div class="aui-info aui-margin-t-10 aui-padded-l-10 aui-padded-r-10">
+		 邮箱|Email
+			<div class="aui-info-item">
+				<span class="aui-margin-l-5">DKH@qimengda.cn</span>
+					</div>
+			<!-- <div class="aui-info-item">2015-07-13 22:31</div> -->
+			<!-- <img src="../../image/demo2.png" style="width:1.5rem" class="aui-img-round" /> -->
+		</div>
+
+		<hr class='aui-hr' />
+		<div class="aui-info aui-margin-t-10 aui-padded-l-10 aui-padded-r-10">
+			公司地址|Address
+			<div class="aui-info-item">
+				<span class="aui-margin-l-5">重庆市北部新区栖霞路18号&nbsp;金贸时代13幢10-08</span>
+					</div>
+		</div>
+		<hr class='aui-hr' />
+	  <p><div class="aui-btn aui-btn-primary aui-btn-block aui-btn-sm my-btn" onclick="offsetCallUs()">立即拨打（Call Us）</div></p>
+	</nav>
+
+</body>
+
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/aui-footer.js"></script>
+<script type="text/javascript">
+// function offsetToBaoxiufuwu(){
+// 	api.openWin({
+// 	    name: 'bxfw_main',
+// 	    url: '../html/bxfw_main.html',
+// 	    pageParam: {
+// 	        name: 'test'
+// 	    }
+// 	});
+//
+// }
+/*调用手机拨号功能，拨打电话*/
+function offsetCallUs(){
+	api.call({
+	    type: 'tel_prompt',
+	    number: '023-63427236'
+	});
+
+}
+apiready=function(){
+	// var windowH = api.winHeight;
+	// var footer_h = $api.offset( $api.dom('footer')).h;
+	// api.openFrame({
+	//     name: 'x86_frame',
+	//     url: '../html/x86_frame.html',
+	//     rect: {
+	//         x: 0,
+	//         y: 80,
+	//         w: 'auto',
+	//         h: windowH-footer_h-80
+	//     },
+	//     pageParam: {
+	//         name: 'test'
+	//     },
+	//     bounces: true,
+	//     bgColor: 'rgba(0,0,0,0)',
+	//     vScrollBarEnabled: true,
+	//     hScrollBarEnabled: true
+	// });
+
+}
+
+</script>
+</html>

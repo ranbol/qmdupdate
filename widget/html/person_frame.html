@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+	<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+	<title>个人中心</title>
+	<link rel="stylesheet" type="text/css" href="../css/api.css">
+	<link rel="stylesheet" type="text/css" href="../css/aui.css" />
+	<style type="text/css">
+		#person_body {
+			position: relative;
+			width: 100%;
+			height: 550px;
+			background-color: #EAEAEA;
+			font-family: inherit;
+		}
+		.photopg {
+			width: 100px;
+			height: 100px;
+			 background-color:yellowgreen;
+			background-image: url(../image/psb.jpg);
+			border-radius: 50%;
+			-moz-border-radius: 50%;
+			-webkit-border-radius: 50%;
+			position: relative;
+			margin: 0 auto;
+			margin-top: 50px;
+		}
+		.nav_header p{
+			text-align: center;
+			padding-top: 10px;
+			padding-bottom: 10px;
+		}
+		nav .menu .left {
+			position: absolute;
+			width: 25px;
+			height: 25px;
+			margin-left: 10px;
+			text-align: center;
+			margin-top: 10px;
+		}
+
+		nav .menu .right {
+			position: absolute;
+			width: 25px;
+			height: 25px;
+			right: 20px;
+			margin-top: -23px;
+		}
+
+		.menu_first {
+			width: 100%;
+			height: 50px;
+			padding-left: 20px;
+		}
+
+		.font {
+			margin-left: 80px;
+			padding-top: 12px;
+		}
+
+		.aui_hr_my {
+			width: 100%;
+			height: 1px;
+		}
+	</style>
+</head>
+
+<body id="person_body">
+	<nav id="nav" style="background-color:#EAEAEA;">
+		<div class=" menu menu_first" onclick="offSetTobxls_main()">
+			<img class="left" src="../image/12.png" alt="">
+			<div class="font">
+				报修记录
+			</div>
+			<img class="right" src="../image/arrow4.png">
+		</div>
+		<hr class='aui-hr' />
+		<div class=" menu menu_first"  onclick="offsetToPsxq_main()" >
+			<img class="left" src="../image/23.png" alt="">
+			<div class="font">
+				个人信息
+				<img class="right" src="../image/arrow4.png">
+			</div>
+		</div>
+		<hr class='aui-hr' />
+		<div class=" menu menu_first" onclick="offsetToAboutUs()">
+			<img class="left" src="../image/25.png" alt="">
+			<div class="font">
+				联系我们
+				<img class="right" src="../image/arrow4.png">
+			</div>
+		</div>
+		<hr class='aui-hr' />
+		<div class=" menu menu_first"  onclick="offsetToSystemMG()">
+			<img class="left" src="../image/27.png" alt="">
+			<div class="font">
+				系统信息
+				<img class="right" src="../image/arrow4.png">
+			</div>
+		</div>
+		<hr class='aui-hr' />
+		<div class=" menu menu_first">
+			<img class="left" src="../image/26.png" alt="">
+			<div class="font">
+				退出登录
+			</div>
+		</div>
+		<hr class='aui-hr' />
+	</nav>
+
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/aui-footer.js"></script>
+<script type="text/javascript" src="../script/person_click.js"></script>
+
+</html>

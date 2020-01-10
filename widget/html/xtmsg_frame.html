@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0.0,width=device-width,initial-scale=1.0" />
+	<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+	<title>检测更新</title>
+	<link rel="stylesheet" type="text/css" href="../css/api.css" />
+	<link rel="stylesheet" type="text/css" href="../css/aui.css" />
+	<style  type="text/css" >
+	.my_body{
+		width: 100%;
+		height: 850px;
+		background-image: url(../image/sys.png);
+	}
+	nav{
+		text-align: center;
+
+	}
+	nav span{
+		text-align: left;
+
+	}
+	</style>
+</head>
+
+<body class="my_body">
+    <nav id="nav">
+			<div style="padding-top:50px;">
+					<h2 style="font-size:1.6em;">奇梦达报修服务</h2>
+			</div>
+      <br>
+			<p style="color:red; font-size:0.8em;">当前版本：version：1.12.1</p>
+	   	<!-- <hr class='aui-hr' /> -->
+			<div style="margin-top:20px;">
+				<span style="color:#009688; letter-spacing:3px;" >
+					本次更新：
+					<p style="color:#009688;">1、修复地级市错误</p>
+					<p style="color:#009688;">2、修复点击时间bug错误</p>
+					<p style="color:#009688;">3、修复无法显示图片加载缓慢</p>
+					<p style="color:#009688;">4、无法调用相机BUG</p>
+					<p style="color:#009688;">5、无效式的打开传播</p>
+				</span>
+			</div>
+			<div class="aui-btn aui-btn-primary" style="margin-top:150px; width:60%;height:35px;">检测更新</div>
+			<div class="aui-btn aui-btn-primary" style="margin-top:10px; width:60%;height:35px; "  onclick="offsetToPerson_Main()">返回</div>
+    </nav>
+	</body>
+
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+function offsetToPerson_Main(){
+	api.openWin({
+	    name: 'person',
+	    url: '../html/person.html',
+	    pageParam: {
+	        name: 'test'
+	    }
+	});
+
+}
+apiready=function(){
+	var windowH = api.winHeight;
+	// var footer_h = $api.offset( $api.dom('footer')).h;
+}
+
+</script>
+</html>

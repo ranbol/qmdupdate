@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>注册</title>
+    <!-- <link rel="stylesheet" type="text/css" href="../css/login.css"> -->
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <style type="text/css" >
+    #body_regist{
+      width: 100%;
+      height: auto;
+      background-color: #EAEAEA;
+    }
+    #fist_top{
+      width: 85%;
+      height: 150px;
+      margin-left: 7.5%;
+    }
+    #body_line{
+      margin-top: 80px;
+    }
+      #body_line p{
+        margin-left: 7.5%;
+        font-size: 0.8em;
+      }
+    #body_line  input{
+        -web-kit-appearance:none;
+        -moz-appearance: none;
+        width:85%;
+        height: 30px;
+        margin: 5px 7.5%;
+        border: palevioletred solid 1px;
+        border-radius:4px;
+        border:1px solid gray;
+        color:#6a6f77;
+        outline:0;
+        box-sizing: border-box;
+        display:block;
+        font-size:0.7em;
+    }
+
+    .show{
+        height:30px;
+        width: 80%;
+        letter-spacing:1.2em;
+        font-weight: 0.2em;
+        font-size: 0.8em;
+        background-color: #EAEAEA;
+        /*border-radius: 8px 8px 8px 8px;
+        box-shadow: 2px 2px 2px #888888;*/
+        margin-left: 10%;
+    }
+    .register{
+        font-size: 0.6em;
+         padding-top: 20px;
+          letter-spacing:0.8em;
+           font-color:red;
+         text-align: center;
+         background-color: #EAEAEA;
+    }
+    #body_line .code{
+        position: absolute;
+        height: 30px;
+        width:50%;
+    }
+    #getValueCode{
+      position: absolute;
+        width: 30%;
+        height: 30px;
+        right: 7.5%;
+        margin-top: 3px;
+        font-size: 0.7em;
+    }
+    .btn_ln{
+      margin-top: 20px;
+    }
+
+    </style>
+
+</head>
+<body id="body_regist" >
+  <div id="fist_top" style="margin-top:0px">
+      <img  src="../image/QMDLOGO.PNG" >
+  </div>
+   <div id="body_line">
+       <p>注册电话：</p>
+       <input type="text" id="username" name="username"  placeholder="请输入电话号码"/>
+       <p>用户密码：</p>
+       <input type="password"  id="password" name="password" placeholder="请输入6-12位含数字和字母的密码"/>
+       <div>
+         <div>
+           <p>验证码：</p>
+         <input  class="code" type="text" id="valueCode" name="valueCode"  placeholder="验证码"/>
+
+         <button class="getValueCode" id="getValueCode" type="submit" onclick="fnGetValueCdoe()" style="background-color: #EAEAEA; ">获取验证码</button>
+          <!-- <div class="aui-btn getValueCode ">获取验证码</div> -->
+             <br>
+         </div>
+       </div>
+       <div class="btn_ln">
+          <br/>
+         <button  class="show"  onclick="appOfRegister()"  name="注册">注册</button>
+         <div class="register"  onclick="offSetToLogin()" >登录
+         <p style="font-size: 0.6em; letter-spacing: 0.8em;">(已有用户，直接登录！)</p>
+        </div>
+       </div>
+   </div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+  apiready = function(){
+  // //获取导航栏高度
+  // var statusBar = api.require('statusBar');
+  // var statusBarHeight  = statusBar.getStatusBarHeight();
+  // var img=$api.byId('fist_top');
+
+
+ }
+
+ //发送短信验证码
+ function fnGetValueCdoe(){
+    var username=$api.byId('username');
+    var usernameValue=username.value;
+    api.ajax({
+          url: 'http://10.76.33.160:8083/appSendMessageForCodeValue',
+          method: 'get',
+          data: {
+              values: {
+                  "phoneNum": usernameValue
+              },
+              files: {
+                  fileName: 'filePath'
+              }
+          }
+      }, function(ret, err) {
+          if (ret) {
+             if (ret.code==0) {
+              alert(ret.msg);
+
+             }else{
+              alert(ret.msg);
+             }
+          } else {
+              alert(JSON.stringify(err));
+          }
+      });
+ }
+
+ //用户注册
+ function appOfRegister(){
+  var username =$api.byId('username');
+  var password =$api.byId('password');
+  var valueCode=$api.byId('valueCode');
+  /*var appLogin = {
+        loginTell : username.value,
+        loginPassword : password.value
+    }*/
+
+  api.ajax({
+       url: 'http://10.76.33.160:8083/appRegister',
+       method: 'post',
+       data: {
+           values: {
+               "loginName":    username.value,
+               "loginTell":    username.value,
+               "loginPassword": password.value,
+               "phoneCode":   valueCode.value
+           },
+           files: {
+               fileName: 'filePath'
+           }
+       }
+   }, function(ret, err) {
+       if (ret) {
+          if (ret.code==0) {
+              api.alert({
+                  title: '提示',
+                  msg: '注册成功',
+              }, function(ret, err) {
+                  if (ret) {
+                  //  api.execScript({
+                  //      name: 'index',
+                  //      frameName: '',
+                  //      script: 'gotologin(\"'+ username.value +' \");'
+                  //  });
+                   api.openWin({
+                       name: 'login',
+                       url: '../html/login.html',
+                       pageParam: {
+                           'username_':username.value,
+                           'password_':password.value
+                       }
+                   });
+
+                  } else {
+                      alert(JSON.stringify(err));
+                  }
+              });
+
+          }else{
+             alert(JSON.stringify(ret));
+            }
+       } else {
+           alert(JSON.stringify(err));
+       }
+   });  }
+
+
+ //跳转到登录页面
+function offSetToLogin(){
+ api.openWin({
+            name: 'login',
+            url: '../html/login.html',
+            bounces: true,
+            rect: {
+                x: 0,
+                y: 0,
+                w: 'auto',
+                h: 'auto'
+            }
+        });
+        api.closeWin();
+
+}
+</script>
+</html>

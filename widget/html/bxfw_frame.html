@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>报修服务frame</title>
+    <link rel="stylesheet" type="text/css"  href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <style type="text/css">
+     .href{
+       height: 50px;
+     }
+     .aui-col-xs-6{
+       border: #33ccff solid 1px;
+       color: gray;
+     }
+     .footer_tip{
+       margin-top: 30px;
+     }
+     .footer_tip p{
+      text-align: center;
+      font-size: 0.7em;
+     }
+    </style>
+</head>
+<body >
+    <section class="aui-grid aui-margin-b-15" >
+    <div class="aui-row aui-text-info" style="height:540px; margin-top:5px; background-color:#EAEAEA;">
+        <div class="aui-col-xs-6" onclick="offsetToX86()">
+            <!-- <div class="aui-badge">88</div> -->
+            <i class="aui-iconfont aui-icon-laud"></i>
+            <div class="aui-grid-label">X86报修</div>
+        </div>
+        <div class="aui-col-xs-6" onclick="offsetToSmall()">
+            <i class="aui-iconfont aui-icon-gear"></i>
+            <div class="aui-grid-label">小型机报修</div>
+        </div>
+
+        <div class="aui-col-xs-6" onclick="offsetToCunChu()">
+            <i class="aui-iconfont aui-icon-calendar"></i>
+            <div class="aui-grid-label">存储器报修</div>
+        </div>
+
+        <div class="aui-col-xs-6" onclick="offsetToDatabase()">
+            <!-- <div class="aui-dot"></div> -->
+            <i class="aui-iconfont aui-icon-like">
+
+            </i>
+            <!-- <img src="../image/database.png"> -->
+            <div class="aui-grid-label">数据库报修</div>
+        </div>
+        <div class="aui-col-xs-6" style="width:100%" onclick="offsetToOther()">
+            <!-- <div class="aui-dot"></div> -->
+            <i class="aui-iconfont aui-icon-pencil"></i>
+            <div class="aui-grid-label">其它报修</div>
+        </div>
+        <div class=" aui-col-xs-1 footer_tip" style="width:100%;">
+           <p>报修流程：    用户提交 ->  服务审核   ->  派单处理   ->   服务结束</p>
+        </div>
+    </div>
+
+</section>
+
+ </body>
+
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/bxfw_click.js"></script>
+<script type="text/javascript">
+apiready = function(){
+}
+</script>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>Hello APP</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <style type="text/css">
+        nav img {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin: 10px 10px;
+            float: left;
+            border: #33ccff solid 1px;
+        }
+
+        nav #company {
+            color: white;
+        }
+
+        #company p {
+            padding-top: 10px;
+            text-indent: 1.5em;
+            text-align: justify;
+            padding-left: 2%;
+            padding-right: 2%;
+            letter-spacing: 0.em;
+        }
+        #pageComment{
+          position: relative;
+          width: 95%;
+          height: 150px;
+          margin-left:2.5%;
+          border: #33ccff solid 1px;
+        }
+    </style>
+</head>
+
+<body id="company_body">
+
+    <nav id="nav">
+
+        <div id="company" class="aui-text-info">
+            <img src="../image/QMDLOGO.png">
+            <!-- <h1>重庆迅可达有限公司</h1>
+          <h2>
+            固定电话：023-56879865
+            邮箱地址：1031462220@qq.com
+            邮    编：401122
+            公司地址：重庆 重庆市渝北区新南路168号2幢1单元17-7
+          </h2> -->
+            <p>重庆迅可达科技有限公司专业从事小型机、存储、PC服务器销售及维保服务；整体解决方案；数据灾难恢复；系统优化升级；虚拟化；桌面云解决方案。涵盖IBM、HP、EMC、ORACLE、SUN、CISCO、HW、H3C、ORACLE、SYBASE、DB2等品牌产品。公司由多名国内首批IBM/HP等原厂公司高级技术专家今年年初筹建，为客户提供定制化专业服务。在重庆有本地完善的产品备件采购渠道以及原厂强大的技术支持。技术服务基于国际ITIL信息管理流程。 公司目前主要服务于政府信息部门及大型企业，负责重庆电力核心设备的维护，多次为多个国家涉保密机制部门处理信息技术问题，并设计搭建虚拟化项目工程。公司扎根重庆，主要面向大重庆主城及区县服务。重庆迅可达自行建立大型备件库，有大量备机，阵列，以及硬盘、电源、风扇、磁带机等易损坏备件。为中小企业及IT同行业提供新全的配件支持。
+            </p>
+            <img  id="pageComment"src="../image/QMDLOGO.png">
+            <p>重庆迅可达科技有限公司专业从事小型机、存储、PC服务器销售及维保服务；整体解决方案；数据灾难恢复；系统优化升级；虚拟化；桌面云解决方案。涵盖IBM、HP、EMC、ORACLE、SUN、CISCO、HW、H3C、ORACLE、SYBASE、DB2等品牌产品。公司由多名国内首批IBM/HP等原厂公司高级技术专家今年年初筹建，为客户提供定制化专业服务。在重庆有本地完善的产品备件采购渠道以及原厂强大的技术支持。技术服务基于国际ITIL信息管理流程。 公司目前主要服务于政府信息部门及大型企业，负责重庆电力核心设备的维护，多次为多个国家涉保密机制部门处理信息技术问题，并设计搭建虚拟化项目工程。公司扎根重庆，主要面向大重庆主城及区县服务。重庆迅可达自行建立大型备件库，有大量备机，阵列，以及硬盘、电源、风扇、磁带机等易损坏备件。为中小企业及IT同行业提供新全的配件支持。
+            </p>
+        </div>
+      </nav>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+
+apiready = function(){
+   api.parseTapmode();
+}
+
+
+
+/*点击跳转到工程案例*/
+function clickProgramType(){
+    api.openWin({
+    name: 'programForms',
+    url: '../html/programForms.html',
+    bounces: true,
+    rect: {
+        x: 0,
+        y: 0,
+        w: 'auto',
+        h: 'auto'
+        }
+    });
+     api.closeWin();
+  }
+</script>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>登录frame</title>
+    <link rel="stylesheet" type="text/css" href="../css/login.css">
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+</head>
+<body id='body_login'>
+<nav>
+<div id="fist_top" style="margin-top:0px">
+    <img  src="../image/QMDLOGO.png" >
+</div>
+<div id="body_line">
+    <p style="padding-top:15px;">注册电话：</p>
+    <input  class='input' type="text"    id="username"  name="username"  placeholder="请输入注册电话..."/>
+    <p style="padding-top:15px;">用户密码：</p>
+    <input class='input' type="password"  id="password" name="password" placeholder="请输入密码..."/>
+    <div class="btn_ln">
+         <div  class="show" type="submit" onclick="offSetLogin()" name="登录">登录</div>
+         <div class="register"  onclick="offSetToRegist()" >注册
+        <p style="font-size: 0.4em; letter-spacing: 0.4em;">(新用户请先注册！)</p>
+        </div>
+    </div>
+</div>
+</nav>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+    apiready=function(){
+      var username= api.pageParam.username_;
+      var password=api.pageParam.password_;
+      if (username==null) {
+         document.getElementById("username").value="";
+         document.getElementById("password").value="";
+      }else {
+        document.getElementById("username").value=username;
+        document.getElementById("password").value=password;
+      }
+    }
+    //用户登录
+    function offSetLogin(){
+        var username=$api.byId('username');
+        var password=$api.byId('password');
+
+        api.ajax({
+            url: 'http://10.76.33.77:8083/appLogin',
+            method: 'get',
+            data: {
+
+                values: {
+                    "loginTell" :    username.value,
+                    "loginPassword": password.value
+                },
+                files: {
+                    fileName: 'filePath'
+                }
+            }
+        }, function(ret, err) {
+            if (ret) {
+                alert(JSON.stringify(ret));
+                if (ret.code == 0 ) {
+                  //保存用户登录信息到本地localStorage
+                   $api.setStorage('personalInfo', ret.data);
+                   alert(JSON.stringify(ret.data));
+                   var personalInfo = {};
+                   personalInfo  =  $api.getStorage('personalInfo');
+                  api.openWin({
+                      name: 'forme',
+                      url: '../html/forme.html',
+                      rect: {
+                          x: 0,
+                          y: 0,
+                          w: 'auto',
+                          h: 'auto'
+                      },
+                      pageParam: {
+                          name: 'value'
+                      },
+                      bounces: true
+                  });
+                }
+
+
+            } else {
+                alert(JSON.stringify(err));
+            }
+        });
+
+    }
+    //跳转到注册页面
+     function offSetToRegist(){
+        api.openWin({
+            name: 'regist',
+            url: '../html/regist.html',
+            pageParam: {
+                name: 'value'
+            }
+        });
+        api.closeWin();
+        }
+</script>
+</html>

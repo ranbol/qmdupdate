@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>注册</title>
+    <!-- <link rel="stylesheet" type="text/css" href="../css/login.css"> -->
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <style type="text/css" >
+
+    </style>
+
+</head>
+<header  style="height:80px; background-color:#33ccff;"class="aui-bar aui-bar-nav" id="aui-header">
+    <a class="aui-btn aui-pull-left" tapmode onclick="closeWin()">
+        <!-- <span style="margin-top:70px;" class="aui-iconfont aui-icon-left"></span> -->
+    </a>
+    <div style="margin-top:30px;color:white"class="aui-title">注册</div>
+</header>
+<body id="body_regist" >
+  <!-- <div id="fist_top" style="margin-top:0px">
+      <img  src="../image/QMDLOGO.PNG" >
+  </div> -->
+
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+  apiready = function(){
+  api.openFrame({
+      name: 'regist_frame',
+      url: '../html/regist_frame.html',
+      rect: {
+          x: 0,
+          y: 80,
+          w: 'auto',
+          h: 'auto'
+      },
+      pageParam: {
+          name: 'test'
+      },
+      bounces: true,
+      bgColor: 'rgba(0,0,0,0)',
+      vScrollBarEnabled: true,
+      hScrollBarEnabled: true
+  });
+
+}
+</script>
+</html>

@@ -38,8 +38,18 @@ function offsetToSystemMG(){
           name: 'test'
       }
   });
-
 //  api.execScript({
 // 		 script: 'popup_out()'
 //  });
+}
+//退出登录
+function offsetToLogin(){
+  api.openWin({
+      name: 'login',
+      url: '../html/login.html',
+      pageParam: {
+          name: 'test'
+      }
+  });
+  api.closeWin();
 }

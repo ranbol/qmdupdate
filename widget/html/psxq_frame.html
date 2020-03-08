@@ -136,6 +136,7 @@
 </body>
 
 <script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/base.js"></script>
 <script type="text/javascript">
 //返回个人中心页
 function offsetToPerson_Main(){
@@ -154,7 +155,36 @@ function offsetPhotoPg(){
 apiready=function(){
 	var windowH = api.winHeight;
 	// var footer_h = $api.offset( $api.dom('footer')).h;
+	api.ajax({
+	    url: 'http://192.168.1.101:3101/upLoad',
+	    method: 'post',
+	    data: {
+	        values: {
+	            name: 'haha'
+	        },
+	        files: {
+	            file: 'fs://a.gif'
+	        }
+	    }
+	},function(ret, err){;;
+	    if (ret) {
+	      if (ret.code==0) {
+	        var json = ret.data;
+					for (var i = 0; i < JSON.length; i++) {
+						JSON[i]
+					}
+	      }
+	    } else {
+	        alert( JSON.stringify( err ) );
+	    }
+	});
+
 }
+
+// var personalInfo = {};
+// personalInfo  =  $api.getStorage('personalInfo');
+
+
 
 </script>
 </html>

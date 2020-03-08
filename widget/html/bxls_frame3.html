@@ -10,19 +10,20 @@
     <link rel="stylesheet" type="text/css" href="../css/aui.css" />
     <link rel="stylesheet" type="text/css" href="../css/aui-pull-refresh.css" />
     <style type="text/css">
-      .aui-card-list-header{
-        font-size: 1.2em;
-        color: red;
-      }
-      .aui-card-list-content-padded{
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
-    .footer-right{
-      right: 20px;
+        .aui-card-list-header {
+            font-size: 1.2em;
+            color: red;
+        }
 
-    }
+        .aui-card-list-content-padded {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .footer-right {
+            right: 20px;
+        }
     </style>
 </head>
 
@@ -32,15 +33,15 @@
             <div id="demo">
                 <div class="aui-card-list">
                     <div class="aui-card-list-header">
-                        卡片布局头部区域
+
                     </div>
 
                     <div class="aui-card-list-content-padded">
-                        内容区域，卡片列表布局样式可以实现APP中常见的各类样式
+                        -------------------暂无处理中报修-----------------
                     </div>
                     <div class="aui-card-list-footer">
-                      <div class="footer-left">底部区域左侧</div>
-                      <div class="footer-right">底部区域右侧</div>
+                        <div class="footer-left"></div>
+                        <div class="footer-right"></div>
                     </div>
 
                 </div>
@@ -58,11 +59,11 @@
         container: document.querySelector('.aui-refresh-content'),
         triggerDistance: 100
     }, function(ret) {
-        if(ret.status=="success"){
-            setTimeout(function(){
-                  autoGetBXHistory();
+        if (ret.status == "success") {
+            setTimeout(function() {
+                autoGetBXHistory();
                 pullRefresh.cancelLoading(); //刷新成功后调用此方法隐藏
-            },1500)
+            }, 1000)
         }
     })
 </script>
@@ -100,36 +101,55 @@
         }, function(ret, err) {
             if (ret) {
                 if (ret.code == 0) {
-                  //  alert(JSON.stringify(ret.data));
+                    //  alert(JSON.stringify(ret.data));
                     var json = ret.data;
                     var bodyHtml = document.getElementById("demo");
-                    var param="";
-                    for (var i = 0; i < json.length; i++) {
-                  　　　if (json[i].bfAttribute=='a') {
-                    param =param+ '<div class="aui-card-list">'+
-                                        '<div class="aui-card-list-header">'+
-                                           json[i].bType+''+
-                                        '</div>'+
-                                        '<div class="aui-card-list-content-padded">'+
-                                           json[i].bDsc+
-                                        '</div>'+
-                                        '<div class="aui-card-list-footer">'+
-                                        '  <div class="footer-left">'+
-                                        timestampToTime(json[i].bDate)+
-                                      '  </div>'+
-                                      '  <div class="footer-right">'+
-                                      "  底部区域右侧"+
-                                    '  </div>'+
-                                        '</div>'+
-                                    '</div>';
-                  　　　}
+                    var param = "";
+                    for (var i = 0; i < json.length; i++) {　　　
+                        if (json[i].bfAttribute == 'c') {
+                            param = param + '<div class="aui-card-list">' +
+                                '<div class="aui-card-list-header">' +
+                                json[i].bType + '' +
+                                '</div>' +
+                                '<div class="aui-card-list-content-padded">' +
+                                json[i].bDsc +
+                                '</div>' +
+                                '<div class="aui-card-list-footer">' +
+                                '  <div class="footer-left">' +
+                                timestampToTime(json[i].bDate) +
+                                '  </div>' +
+                                '  <div class="footer-right">' +
+                                "  底部区域右侧" +
+                                '  </div>' +
+                                '</div>' +
+                                '</div>';　　　
+                        }
                     }
-                    bodyHtml.innerHTML=param;
+                    if (param == "") {
+                        param = param + '<div class="aui-card-list">' +
+                            '<div class="aui-card-list-header">' +
+
+                            '</div>' +
+                            '<div class="aui-card-list-content-padded">' +
+                            '-------------------暂无待处理报修-----------------' +
+                            '</div>' +
+                            '<div class="aui-card-list-footer">' +
+                            '  <div class="footer-left">' +
+
+                            '  </div>' +
+                            '  <div class="footer-right">' +
+
+                            '  </div>' +
+                            '</div>' +
+                            '</div>';
+                    }
                 }
+                bodyHtml.innerHTML = param;
             } else {
                 alert(JSON.stringify(err));
             }
         });
     }
 </script>
+
 </html>

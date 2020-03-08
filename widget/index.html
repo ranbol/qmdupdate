@@ -63,6 +63,9 @@
 <script type="text/javascript" src="./script/api.js"></script>
 <script type="text/javascript">
 apiready = function () {
+  //设置全局地址
+  var globAddress="http://192.168.2.104:8083/";
+  $api.setStorage('globAddress', globAddress);
    if($api.getStorage('personalInfo')){
             api.openSlidLayout({
             type: 'left',
@@ -72,8 +75,8 @@ apiready = function () {
                 url: 'html/main.html'
             },
             slidPane: {
-                name: 'login',
-                url: 'html/login.html'
+                name: 'login_frame',
+                url: 'html/login_frame.html'
             }
         }, function (ret) {
 

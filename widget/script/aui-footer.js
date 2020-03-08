@@ -1,12 +1,12 @@
 function offsetclickforme(){
-  api.openWin({
-      name: 'forme',
-      url: '../html/forme.html',
-      pageParam: {
-          name: 'test'
-      }
-  });
-    api.closeWin();
+    api.openWin({
+        name: 'forme',
+        url: '../html/forme.html',
+        pageParam: {
+            name: 'test'
+        }
+    });
+      api.closeWin();
 }
 
 function offsetclickproduct(){
@@ -32,12 +32,12 @@ function offsetclickbxfw(){
 }
 
 function offsetclickperson(){
-  api.openWin({
-      name: 'person',
-      url: '../html/person.html',
-      pageParam: {
-          name: 'test'
-      }
-  });
-    api.closeWin();
+    api.openWin({
+        name: 'person',
+        url: '../html/person.html',
+        pageParam: {
+            name: 'test'
+        }
+    });
+      api.closeWin();
 }

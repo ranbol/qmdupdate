@@ -1,0 +1,156 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>报修纪录</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <link rel="stylesheet" type="text/css" href="../css/aui-pull-refresh.css" />
+    <style type="text/css">
+        .aui-card-list-header {
+            font-size: 1.2em;
+            color: red;
+        }
+
+        .aui-card-list-content-padded {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .footer-right {
+            right: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="aui-refresh-content">
+        <div class="aui-content">
+            <div id="demo">
+                <div class="aui-card-list">
+                    <div class="aui-card-list-header">
+
+                    </div>
+
+                    <div class="aui-card-list-content-padded">
+                        -------------------暂无待处理报修-----------------
+                    </div>
+                    <div class="aui-card-list-footer">
+                        <div class="footer-left"></div>
+                        <div class="footer-right"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/base.js"></script>
+<script src="../script/aui-pull-refresh.js"></script>
+<script type="text/javascript">
+    var pullRefresh = new auiPullToRefresh({
+        container: document.querySelector('.aui-refresh-content'),
+        triggerDistance: 100
+    }, function(ret) {
+        if (ret.status == "success") {
+            setTimeout(function() {
+                autoGetBXHistory();
+                pullRefresh.cancelLoading(); //刷新成功后调用此方法隐藏
+            }, 1000)
+        }
+    })
+</script>
+<script type="text/javascript">
+    //获取全局接口地址
+    var globAddress = {};
+    globAddress = $api.getStorage('globAddress');
+    //获取个人信息
+    var personalInfo = {};
+    personalInfo = $api.getStorage('personalInfo');
+    apiready = function() {
+        /*离开页面时关闭窗口*/
+        //  api.addEventListener({
+        //            name:'viewdisappear'
+        //        },function(){
+        //            api.closeWin();
+        // });
+        var windowH = api.winHeight;
+        var windowL = api.winWidth;
+        autoGetBXHistory();
+    }
+
+    /*加载个人报修纪录*/
+    function autoGetBXHistory() {
+        api.ajax({
+            url: 'http://10.76.33.140:8083/appRepairHistory',
+            method: 'post',
+            data: {
+                values: {
+                    uId: '86'
+                },
+                files: {
+                    file: ''
+                }
+            }
+        }, function(ret, err) {
+            if (ret) {
+                if (ret.code == 0) {
+                    //  alert(JSON.stringify(ret.data));
+                    var json = ret.data;
+                    var bodyHtml = document.getElementById("demo");
+                    var param = "";
+                    for (var i = 0; i < json.length; i++) {　　　
+                        if (json[i].bfAttribute == 'a') {
+                            param = param + '<div class="aui-card-list">' +
+                                '<div class="aui-card-list-header">' +
+                                json[i].bType + '' +
+                                '</div>' +
+                                '<div class="aui-card-list-content-padded">' +
+                                json[i].bDsc +
+                                '</div>' +
+                                '<div class="aui-card-list-footer">' +
+                                '  <div class="footer-left">' +
+                                timestampToTime(json[i].bDate) +
+                                '  </div>' +
+                                '  <div class="footer-right">' +
+                                "  底部区域右侧" +
+                                '  </div>' +
+                                '</div>' +
+                                '</div>';　　　
+                        }
+                    }
+                    if (param == "") {
+                        param = param + '<div class="aui-card-list">' +
+                            '<div class="aui-card-list-header">' +
+
+                            '</div>' +
+                            '<div class="aui-card-list-content-padded">' +
+                            '-------------------暂无待处理报修-----------------' +
+                            '</div>' +
+                            '<div class="aui-card-list-footer">' +
+                            '  <div class="footer-left">' +
+
+                            '  </div>' +
+                            '  <div class="footer-right">' +
+
+                            '  </div>' +
+                            '</div>' +
+                            '</div>';
+                    }
+                }
+                bodyHtml.innerHTML = param;
+            } else {
+                alert(JSON.stringify(err));
+            }
+        });
+    }
+</script>
+
+</html>

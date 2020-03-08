@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>报修纪录</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+
+    <body>
+        <div class="text" style="margin-top:85px;">
+            <input type="file" name="file1" id="file1" value="">
+            <input type="file" name="file1" id="file1" value="">
+            <input type="file" name="file1" id="file1" value="">
+            <input type="file" name="file1" id="file1" value="">
+        </div>
+        <button type="submit" name="submit" onclick="funOff()" id="submit">提交</button>
+    </body>
+    <script type="text/javascript" src="../script/api.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript">
+        function funOff() {
+            var form = new FormData();
+            var test=document.getElementsByName('file1');
+            alert(test.length);
+            for (var i = 0; i < test.length; i++) {
+              form.append("file", test[i].files[0]);
+            }
+            //form.append("file", document.getElementById("file1").files[0]);
+            // form.append("file", document.getElementById("file2").files[0]);
+            // form.append("file", document.getElementById("file3").files[0]);
+            // form.append("file", document.getElementById("file4").files[0]);
+            $.ajax({     
+                type: 'POST',
+                     url: 'http://10.76.33.140:8083/appRepairConsole',
+                     data: form,
+                     contentType: false,
+                     processData: false, //这个很有必要，不然不行
+                     dataType: "json",
+                     mimeType: "multipart/form-data",
+                     success: function(data) {                       
+                    console.log(data);         
+                }   
+            });
+            //  api.ajax({
+            //      url: 'http://10.76.33.140:8083/appRepairConsole',
+            //      method: 'post',
+            //      data: {
+            //          values: {
+            //              name: 'haha'
+            //          },
+            //          files: {
+            //              "file1": svg.files[0]
+            //          }
+            //      }
+            //  },function(ret, err){
+            //      if (ret) {
+            //          alert( JSON.stringify( ret ) );
+            //      } else {
+            //          alert( JSON.stringify( err ) );
+            //      }
+            //  });
+
+            // api.ajax({
+            //   url: 'http://10.76.33.140:8083/appRepairConsole',
+            //   method: 'post',
+            //   dataType: "json",
+            //   data: form
+            // }, function(ret, err) {
+            //   if (ret) {
+            //     alert(JSON.stringify(ret));
+            //   } else {
+            //     alert(JSON.stringify(err));
+            //   }
+            // });
+        }
+    </script>
+
+</html>

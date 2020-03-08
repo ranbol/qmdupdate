@@ -94,20 +94,20 @@
 		<hr class='aui-hr' />
 	</nav>
 	<footer class="aui-bar aui-bar-tab" id="footer">
-		<div class="aui-bar-tab-item " onclick="offsetclickforme()" tapmode>
+		<div class="aui-bar-tab-item " id="forme" onclick="offsetclickforme()" tapmode>
 			<i class="aui-iconfont aui-icon-home"></i>
 			<div class="aui-bar-tab-label">首页</div>
 		</div>
-		<div class="aui-bar-tab-item" onclick="offsetclickproduct()" tapmode>
+		<div class="aui-bar-tab-item" id="product_main" onclick="offsetclickproduct()" tapmode>
 			<i class="aui-iconfont aui-icon-star"></i>
 			<div class="aui-bar-tab-label">产品服务</div>
 		</div>
-		<div class="aui-bar-tab-item" onclick="offsetclickbxfw()" tapmode>
+		<div class="aui-bar-tab-item" id="bxfw_main" onclick="offsetclickbxfw()" tapmode>
 			<!-- <div class="aui-badge">99</div> -->
 			<i class="aui-iconfont aui-icon-paper"></i>
 			<div class="aui-bar-tab-label">报修</div>
 		</div>
-		<div class="aui-bar-tab-item  aui-active" onclick="offsetclickperson()" tapmode>
+		<div class="aui-bar-tab-item  aui-active" id="person" onclick="offsetclickperson()" tapmode>
 			<!-- <div class="aui-dot"></div> -->
 			<i class="aui-iconfont aui-icon-my"></i>
 			<div class="aui-bar-tab-label">我的</div>
@@ -116,9 +116,12 @@
 </body>
 <script type="text/javascript" src="../script/api.js"></script>
 <script type="text/javascript" src="../script/aui-footer.js"></script>
+<script type="text/javascript" src="../script/base.js"></script>
 <script type="text/javascript">
 
 	apiready = function() {
+		//两次返回退出app
+		 exitNowApp();
 
 		/*离开页面时关闭窗口*/
 		// api.addEventListener({

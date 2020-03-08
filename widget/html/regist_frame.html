@@ -109,6 +109,7 @@
    </div>
 </body>
 <script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/base.js"></script>
 <script type="text/javascript">
   apiready = function(){
   // //获取导航栏高度
@@ -118,13 +119,15 @@
 
 
  }
-
+ //获取全局接口地址
+ var globAddress = {};
+ globAddress  =  $api.getStorage('globAddress');
  //发送短信验证码
  function fnGetValueCdoe(){
     var username=$api.byId('username');
     var usernameValue=username.value;
     api.ajax({
-          url: 'http://10.76.33.140:8083/appSendMessageForCodeValue',
+          url: 'http://192.168.2.104:8083/'+'appSendMessageForCodeValue',
           method: 'get',
           data: {
               values: {
@@ -159,7 +162,7 @@
     }*/
 
   api.ajax({
-       url: 'http://10.76.33.140:8083/appRegister',
+       url: 'http://192.168.2.104:8083/'+'appRegister',
        method: 'post',
        data: {
            values: {
@@ -181,13 +184,13 @@
               }, function(ret, err) {
                   if (ret) {
                   //  api.execScript({
-                  //      name: 'index',
-                  //      frameName: '',
-                  //      script: 'gotologin(\"'+ username.value +' \");'
+                  //      name: 'login',
+                  //      frameName: 'login_frame',
+                  //      script: 'gotologin(\"'+ username.value +'\");'
                   //  });
                    api.openWin({
                        name: 'login',
-                       url: '../html/login.html',
+                       url: '../html/login_frame.html',
                        pageParam: {
                            'username_':username.value,
                            'password_':password.value

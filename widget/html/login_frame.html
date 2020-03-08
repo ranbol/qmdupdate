@@ -28,10 +28,17 @@
 </nav>
 </body>
 <script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/base.js"></script>
 <script type="text/javascript">
+//获取全局接口地址
+var globAddress = {};
+globAddress  =  $api.getStorage('globAddress');
+//获取注册界面中的用户名和用户密码
     apiready=function(){
       var username= api.pageParam.username_;
       var password=api.pageParam.password_;
+      alert(username+password);
+
       if (username==null) {
          document.getElementById("username").value="";
          document.getElementById("password").value="";
@@ -39,6 +46,8 @@
         document.getElementById("username").value=username;
         document.getElementById("password").value=password;
       }
+
+      exitNowApp();
     }
     //用户登录
     function offSetLogin(){
@@ -46,7 +55,7 @@
         var password=$api.byId('password');
 
         api.ajax({
-            url: 'http://10.76.33.140:8083/appLogin',
+            url: 'http://192.168.2.104:8083/'+'appLogin',
             method: 'get',
             data: {
 
@@ -60,7 +69,7 @@
             }
         }, function(ret, err) {
             if (ret) {
-                alert(JSON.stringify(ret));
+              //  alert(JSON.stringify(ret));
                 if (ret.code == 0 ) {
                   //保存用户登录信息到本地localStorage
                    $api.setStorage('personalInfo', ret.data);
@@ -85,7 +94,12 @@
 
 
             } else {
-                alert(JSON.stringify(err));
+              api.toast({
+                msg :JSON.stringify(err),
+                duration : 2000,
+                location : 'bottom'
+              });
+              //  alert(JSON.stringify(err));
             }
         });
 

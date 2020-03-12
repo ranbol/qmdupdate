@@ -23,14 +23,14 @@
 	<nav id="nav" style="height:500px;">
 		<div class="aui-content aui-margin-b">
 			<ul class="aui-list aui-form-list">
-				<li class="aui-list-header">Tips:X86报修</li>
+				<li class="aui-list-header">Tips:X86报修（公司名称请填写你所属公司 | 问题描述如是文档请填写"请见附件文档"）</li>
 				<li class="aui-list-item">
 					<div class="aui-list-item-inner">
 						<div class="aui-list-item-label">
-							报修机型:
+							公司名称:
 						</div>
 						<div class="aui-list-item-input">
-							<input type="text" id="bxName" value="X86报修" placeholder="...">
+							<input type="text" id="bxName" value="" placeholder="...">
 						</div>
 					</div>
 				</li>
@@ -60,7 +60,7 @@
 							联系人姓名：
 						</div>
 						<div class="aui-list-item-input">
-							<input type="text" id="bxName"  value="" placeholder="...">
+							<input type="text" id="buName"  value="" placeholder="...">
 						</div>
 					</div>
 				</li>
@@ -88,7 +88,7 @@
 				<li class="aui-list-item">
 					<div>
 						<p>附件上传:</p>
-						<p style="font-size:0.6em">(上传总文件大小不得超过50M)</p>
+						<p style="font-size:0.6em">(文件数量最多为10，上传总文件大小不得超过50M，附件可以为空)</p>
 						<a style="margin-left: 5px; " href="javascript:void(0)" class="select_the_file">选择文件
 	               <input type="file"  class="iptFile"  id="files" name="file" onchange="upFile(this)">
 	            </a>
@@ -143,14 +143,36 @@
 	function offSetCommit() {
 		var form = new FormData();
 		var bName = document.getElementById('bxName');
+		var bType= document.getElementById('bxType');
 		var bDsc = document.getElementById('bxDescribe');
+		var buName=document.getElementById('buName');
 		var bTell = document.getElementById('bxTell');
 		var bAddress = document.getElementById('bxAddress');
+		api.getPrefs({
+				key: 'personId'
+		}, function(ret, err){
+				if( ret ){				
+							  $api.setStorage("uId",ret.value);
+				}else{
+					api.toast({
+							msg: '网络错误',
+							duration: 2000,
+							location: 'bottom'
+					});
+				}
+		});
+		form.set("uId",$api.getStorage("uId"));
 		if (bName.value != null || bName.value != "") {
-			form.set("bType", bName.value);
+			form.set("bName", bName.value);
+		}
+		if (bType.value != null || bType.value != "") {
+			form.set("bType", bType.value);
 		}
 		if (bDsc.value != null || bDsc.value != "") {
 			form.set("bDsc", bDsc.value);
+		}
+		if (buName.value != null || buName.value != "") {
+			form.set("bUname", buName.value);
 		}
 		if (bTell.value != null || bTell.value != "") {
 			form.set("bTell", bTell.value);
@@ -158,15 +180,18 @@
 		if (bAddress.value != null || bAddress.value != "") {
 			form.set("bAddress", bAddress.value);
 		}
-		form.set("uId", 86);
-		form.set("bName", "x86报修");
+
+	//	form.set("bName", "x86报修");
 		var file = document.getElementsByName('file');
 		for (var i = 0; i < file.length; i++) {
 			form.append("files", file[i].files[0])
 		}
+		//获取全局接口地址
+		var globAddress = {};
+		globAddress  =  $api.getStorage('globAddress');
 		$.ajax({     
 			type: 'POST',
-			     url: 'http://10.76.33.140:8083/appRepairCommit',
+			     url: globAddress+'appRepairCommit',
 			     data: form,
 			     contentType: false,
 			     processData: false, //这个很有必要，不然不行

@@ -37,7 +37,7 @@ globAddress  =  $api.getStorage('globAddress');
     apiready=function(){
       var username= api.pageParam.username_;
       var password=api.pageParam.password_;
-      alert(username+password);
+      // alert(username+password);
 
       if (username==null) {
          document.getElementById("username").value="";
@@ -55,7 +55,7 @@ globAddress  =  $api.getStorage('globAddress');
         var password=$api.byId('password');
 
         api.ajax({
-            url: 'http://192.168.2.104:8083/'+'appLogin',
+            url: globAddress+'appLogin',
             method: 'get',
             data: {
 
@@ -72,8 +72,16 @@ globAddress  =  $api.getStorage('globAddress');
               //  alert(JSON.stringify(ret));
                 if (ret.code == 0 ) {
                   //保存用户登录信息到本地localStorage
-                   $api.setStorage('personalInfo', ret.data);
-                   alert(JSON.stringify(ret.data));
+                  // $api.setLStorage('personalInfo', ret.data);
+                  // $api.setLocalStorage('personalInfo', ret.data);
+
+              //    alert(ret.data);
+                   api.setPrefs({
+                       key: 'personId',
+                       value: ret.data.uId
+                   });
+
+                  //  alert(JSON.stringify(ret.data));
                    var personalInfo = {};
                    personalInfo  =  $api.getStorage('personalInfo');
                   api.openWin({

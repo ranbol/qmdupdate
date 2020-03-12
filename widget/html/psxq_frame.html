@@ -8,21 +8,21 @@
 	<title>个人信息frame</title>
 	<link rel="stylesheet" type="text/css" href="../css/api.css" />
 	<link rel="stylesheet" type="text/css" href="../css/aui.css" />
-	<style  type="text/css" >
-    .pg{
-    	position: relative;
-    	width: 85px;
+	<style type="text/css">
+		.pg {
+			position: relative;
+			width: 85px;
 			height: 85px;
 			text-align: center;
-	   	margin-left: -110px;
-
+			margin-left: -110px;
 			/*border: gray solid 1px;*/
 			border-radius: 50%;
 			-moz-border-radius: 50%;
 			-webkit-border-radius: 50%;
-		  background-color: yellow;
-    }
-		.my_btn{
+			background-color: yellow;
+		}
+
+		.my_btn {
 			position: relative;
 			width: 80%;
 			height: 40px;
@@ -34,157 +34,266 @@
 
 <body>
 	<div class="aui-content aui-margin-b-15">
-	 <ul class="aui-list aui-list-in">
-			 <li class="aui-list-header">
-					 基本信息
-			 </li>
-			 <li class="aui-list-item">
-					<div class="aui-list-item-inner" style="height:100px;" onclick="offsetPhotoPg()">
-							<div class="aui-list-item-title">头像：</div>
-							<div class="pg">
-							 <img src="../image/psb.jpg" alt="">
-							</div>
-							<i class="aui-iconfont aui-icon-right"></i>
-					</div>
-			</li>
-			 <li class="aui-list-item">
-					 <div class="aui-list-item-inner">
-							 <div class="aui-list-item-label">
-									 昵称：
-							 </div>
-							 <div class="aui-list-item-input">
-									 <input type="text" value="Lazy_RainBol" placeholder="Name">
-							 </div>
-							 	 <i class="aui-iconfont aui-icon-right"></i>
-					 </div>
-			 </li>
-			 <li class="aui-list-item">
-					 <div class="aui-list-item-inner">
-							 <div class="aui-list-item-label">
-									 性别：
-							 </div>
-							 <div class="aui-list-item-input">
-									 <label><input class="aui-radio" type="radio" name="demo1" checked> 男</label>
-									 <label><input class="aui-radio" type="radio" name="demo1"> 女</label>
-							 </div>
-					 </div>
-			 </li>
-			 <li class="aui-list-item">
-					 <div class="aui-list-item-inner">
-							 <div class="aui-list-item-label">
-									 破壳日：
-							 </div>
-							 <div class="aui-list-item-input" style="text-align:center; padding-top:20px;">
-									 <input type="date" value="1994-02-10" placeholder="1994/02/10">
-							 </div>
-							 	 <i class="aui-iconfont aui-icon-right"></i>
-					 </div>
-			 </li>
-			 <li class="aui-list-item">
-					 <div class="aui-list-item-inner">
-							 <div class="aui-list-item-label">
-									 注册电话：
-							 </div>
-							 <div class="aui-list-item-input">
-									 <input type="text" value="13167868707" placeholder="Name">
-							 </div>
-							 	 <i class="aui-iconfont aui-icon-right"></i>
-					 </div>
-			 </li>
-			 <li class="aui-list-item">
-					 <div class="aui-list-item-inner">
-							 <div class="aui-list-item-label">
-									 邮箱地址：
-							 </div>
-							 <div class="aui-list-item-input">
-									 <input type="email" value="screatren@hotmail.com" placeholder=".....@.....com">
-							 </div>
-							 	 <i class="aui-iconfont aui-icon-right"></i>
-					 </div>
-			 </li>
-			 <li class="aui-list-item">
-					<div class="aui-list-item-inner">
-							<div class="aui-list-item-label">
-									所属公司：
-							</div>
-							<div class="aui-list-item-input">
-									<input type="text" value="重庆酷杰文化科技有限公司" placeholder="Name">
-							</div>
-								<i class="aui-iconfont aui-icon-right"></i>
-					</div>
+		<ul class="aui-list aui-list-in">
+			<li class="aui-list-header">
+				基本信息
 			</li>
 			<li class="aui-list-item">
-					<div class="aui-list-item-inner">
-							<div class="aui-list-item-label">
-									公司地址：
-							</div>
-							<div class="aui-list-item-input">
-									<input type="text" value="重庆市渝北区湖山路彩云湖" placeholder="Name">
-							</div>
-								<i class="aui-iconfont aui-icon-right"></i>
+				<div class="aui-list-item-inner" style="height:100px;" onclick="offsetPhotoPg()">
+					<div class="aui-list-item-title">头像：</div>
+					<div class="pg">
+						<img src="../image/psb.jpg" alt="">
 					</div>
+					<i class="aui-iconfont aui-icon"></i>
+				</div>
+			</li>
+			<li class="aui-list-item">
+				<div class="aui-list-item-inner">
+					<div class="aui-list-item-label">
+						昵称：
+					</div>
+					<div class="aui-list-item-input">
+						<input type="text" id="nickName">
+					</div>
+					<i class="aui-iconfont aui-icon-right"></i>
+				</div>
+			</li>
+			<li class="aui-list-item">
+				<div class="aui-list-item-inner">
+					<div class="aui-list-item-label">
+						性别：
+					</div>
+					<div class="aui-list-item-input">
+						<label><input id="uSex" class="aui-radio" type="radio" value="Y" name="uSex" > 男</label>
+						<label><input id="uSex" class="aui-radio" type="radio" value="X" name="uSex" > 女</label>
+					</div>
+				</div>
+			</li>
+			<li class="aui-list-item">
+				<div class="aui-list-item-inner">
+					<div class="aui-list-item-label">
+						破壳日：
+					</div>
+					<div class="aui-list-item-input" style="text-align:center; padding-top:20px;">
+						<input type="date" id="uBirth" placeholder="..">
+					</div>
+					<i class="aui-iconfont aui-icon-right"></i>
+				</div>
+			</li>
+			<li class="aui-list-item">
+				<div class="aui-list-item-inner">
+					<div class="aui-list-item-label">
+						注册电话：
+					</div>
+					<div class="aui-list-item-input">
+						<input type="text" id="uTell"  placeholder="..">
+					</div>
+					<i class="aui-iconfont aui-icon-right"></i>
+				</div>
+			</li>
+			<li class="aui-list-item">
+				<div class="aui-list-item-inner">
+					<div class="aui-list-item-label">
+						邮箱地址：
+					</div>
+					<div class="aui-list-item-input">
+						<input type="email" id="uMz"  placeholder=".....@.....com">
+					</div>
+					<i class="aui-iconfont aui-icon-right"></i>
+				</div>
+			</li>
+			<li class="aui-list-item">
+				<div class="aui-list-item-inner">
+					<div class="aui-list-item-label">
+						所属公司：
+					</div>
+					<div class="aui-list-item-input">
+						<input type="text" id="uCompany"  placeholder="..">
+					</div>
+					<i class="aui-iconfont aui-icon-right"></i>
+				</div>
+			</li>
+			<li class="aui-list-item">
+				<div class="aui-list-item-inner">
+					<div class="aui-list-item-label">
+						公司地址：
+					</div>
+					<div class="aui-list-item-input">
+						<input type="text" id="ucAddress"  placeholder="..">
+					</div>
+					<i class="aui-iconfont aui-icon-right"></i>
+				</div>
 			</li>
 
 
 
-			 <div class="aui-btn aui-btn-info my_btn" >保存（COMMITE）</div>
+			<div class="aui-btn aui-btn-info my_btn" onclick="ofUpdatePersonImformation()">保存（COMMITE）</div>
 
 
-	 </ul>
-</div>
+		</ul>
+	</div>
 
 </body>
 
 <script type="text/javascript" src="../script/api.js"></script>
 <script type="text/javascript" src="../script/base.js"></script>
 <script type="text/javascript">
-//返回个人中心页
-function offsetToPerson_Main(){
-	api.openWin({
-	    name: 'person',
-	    url: '../html/person.html',
-	    pageParam: {
-	        name: 'test'
-	    }
-	});
-}
-//点击修改头像
-function offsetPhotoPg(){
+//获取全局接口地址
+var globAddress = {};
+globAddress  =  $api.getStorage('globAddress');
 
-}
-apiready=function(){
-	var windowH = api.winHeight;
-	// var footer_h = $api.offset( $api.dom('footer')).h;
-	api.ajax({
-	    url: 'http://192.168.1.101:3101/upLoad',
-	    method: 'post',
-	    data: {
-	        values: {
-	            name: 'haha'
-	        },
-	        files: {
-	            file: 'fs://a.gif'
-	        }
-	    }
-	},function(ret, err){;;
-	    if (ret) {
-	      if (ret.code==0) {
-	        var json = ret.data;
-					for (var i = 0; i < JSON.length; i++) {
-						JSON[i]
+	//返回个人中心页
+	function offsetToPerson_Main() {
+		api.openWin({
+			name: 'person',
+			url: '../html/person.html',
+			pageParam: {
+				name: 'test'
+			}
+		});
+	}
+	//保存修改个人信息
+	function ofUpdatePersonImformation() {
+		//获取页面元素
+		var nickName = $api.byId('nickName');
+		var uSex = $api.byId('uSex');
+		var uBirth= $api.byId('uBirth');
+		var uTell = $api.byId('uTell');
+		var uMz = $api.byId('uMz');
+		var uCompany = $api.byId('uCompany');
+		var ucAdrress = $api.byId('ucAdrress');
+    var radio = $api.val($api.dom('input[type="radio"]:checked'));
+		var timefor=uBirth.value.toString().replace(/-/g,"/");
+		//获取用户ID
+		api.getPrefs({
+		    key: 'personId'
+		}, function(ret, err){
+		    if( ret ){
+					api.ajax({
+						url: globAddress + 'updatePersonInformation',
+						method: 'post',
+						data: {
+							values: {
+								"uId":ret.value,
+								"uNick": nickName.value,
+								"uSex": radio,
+								"uBirth": timefor,
+								"uTell": uTell.value,
+								"uMz": uMz.value,
+								"ucName": uCompany.value,
+								"ucAddress": ucAddress.value
+								},
+							files: {
+								file: 'fs://a.gif'
+							}
+						}
+					}, function(ret, err) {;;
+						if (ret) {
+							if (ret.code == 0) {
+								nickName.value = ret.data.uNick;
+								if(ret.data.uSex=='Y'){
+									 $api.attr($api.dom("input[id='uSex'][value='Y']"),"checked",'checked');
+								}else {
+									 $api.attr($api.dom("input[id='uSex'][value='X']"),"checked",'checked');
+								}
+								uTell.value = ret.data.uTell;
+								uMz.value = ret.data.uMz;
+								uBirth.value = formatDateTime3(ret.data.uBirth, 'yyyy-MM-dd');
+								uCompany.value = ret.data.ucName;
+								ucAddress.value = ret.data.ucAddress;
+								api.toast({
+								    msg: '更新成功',
+								    duration: 2000,
+								    location: 'bottom'
+								});
+
+							} else {
+								api.toast({
+										msg: '更新失败，请联系客服！',
+										duration: 2000,
+										location: 'bottom'
+								});
+							}
+						} else {
+							api.toast({
+ 								 msg: '网络错误',
+ 								 duration: 2000,
+ 								 location: 'bottom'
+ 						 });
+						}
+					});
+		    }else{
+					api.toast({
+							msg: '网络错误',
+							duration: 2000,
+							location: 'bottom'
+					});
+		    }
+		});
+	}
+	apiready = function() {
+		//获取全局接口地址
+		var globAddress = {};
+		globAddress = $api.getStorage('globAddress');
+		var windowH = api.winHeight;
+		// var footer_h = $api.offset( $api.dom('footer')).h;
+
+		//获取页面元素
+		var nickName = $api.byId('nickName');
+  	var uSex = $api.byId('uSex');
+		var uBirth = $api.byId('uBirth');
+		var uTell = $api.byId('uTell');
+		var uMz = $api.byId('uMz');
+		var uCompany = $api.byId('uCompany');
+		var ucAddress = $api.byId('ucAddress');
+
+		api.getPrefs({
+			key: 'personId'
+		}, function(ret, err) {
+			if (ret) {
+				api.ajax({
+					url:globAddress+'searchPersonInformation',
+					method: 'post',
+					data: {
+						values: {
+							uId: ret.value
+						},
+						files: {
+							file: 'fs://a.gif'
+						}
 					}
-	      }
-	    } else {
-	        alert( JSON.stringify( err ) );
-	    }
-	});
+				}, function(ret, err) {
+					if (ret) {
+					//	alert(JSON.stringify(ret));
+						nickName.value = ret.data.uNick;
+						if(ret.data.uSex=='Y'){
+               $api.attr($api.dom("input[id='uSex'][value='Y']"),"checked",'checked');
+						}else {
+					     $api.attr($api.dom("input[id='uSex'][value='X']"),"checked",'checked');
+						}
+						uTell.value = ret.data.uTell;
+						uMz.value = ret.data.uMz;
+						uBirth.value = formatDateTime3(ret.data.uBirth, 'yyyy-MM-dd');
+						uCompany.value = ret.data.ucName;
+						ucAddress.value = ret.data.ucAddress;
+					} else {
+						api.toast({
+								msg: '网络错误',
+								duration: 2000,
+								location: 'bottom'
+						});
+					}
+				});
 
-}
-
-// var personalInfo = {};
-// personalInfo  =  $api.getStorage('personalInfo');
-
-
-
+			} else {
+				api.toast({
+ 					 msg: '网络错误',
+ 					 duration: 2000,
+ 					 location: 'bottom'
+ 			 });
+			}
+		});
+	}
 </script>
+
 </html>

@@ -87,7 +87,7 @@
         /*加载个人报修纪录*/
     function autoGetBXHistory() {
         api.ajax({
-            url: 'http://10.76.33.140:8083/appRepairHistory',
+            url: globAddress + 'appRepairHistory',
             method: 'post',
             data: {
                 values: {
@@ -127,7 +127,11 @@
                     bodyHtml.innerHTML=param;
                 }
             } else {
-                alert(JSON.stringify(err));
+              api.toast({
+                  msg: '网络错误',
+                  duration: 2000,
+                  location: 'bottom'
+              });
             }
         });
     }

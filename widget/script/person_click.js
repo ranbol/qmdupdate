@@ -44,6 +44,10 @@ function offsetToSystemMG(){
 }
 //退出登录
 function offsetToLogin(){
+  api.setPrefs({
+      key: 'personId',
+      value: ''
+  });
   api.openWin({
       name: 'login',
       url: '../html/login.html',
@@ -51,5 +55,5 @@ function offsetToLogin(){
           name: 'test'
       }
   });
-  api.closeWin();
+  api.closeFrame();
 }

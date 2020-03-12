@@ -97,7 +97,11 @@
                 });
 
             } else {
-                alert(JSON.stringify(err));
+              api.toast({
+                  msg: '网络错误',
+                  duration: 2000,
+                  location: 'bottom'
+              });
             }
         });
         /* 加载顶部导航栏*/
@@ -121,7 +125,11 @@
                 //  alert( JSON.stringify( ret ) );
                 tab.setActive(ret.value.id + 1);
             } else {
-                alert(JSON.stringify(err));
+              api.toast({
+                  msg: '网络错误',
+                  duration: 2000,
+                  location: 'bottom'
+              });
             }
         });
 

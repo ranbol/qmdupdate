@@ -88,8 +88,9 @@
 	<nav id="nav" style="background-color:#EAEAEA;">
 		<div class="nav_header">
 		  	<div class="photopg">
+					<!-- <img src="../image/psb.jpg" alt=""> -->
 		  	</div>
-			  <p>Lazy_RanBol</p>
+			  <p id="nickName"></p>
 		</div>
 		<hr class='aui-hr' />
 	</nav>
@@ -123,6 +124,10 @@
 		//两次返回退出app
 		 exitNowApp();
 
+		 //获取全局接口地址
+		 var globAddress = {};
+		 globAddress  =  $api.getStorage('globAddress');
+
 		/*离开页面时关闭窗口*/
 		// api.addEventListener({
 		// 	name: 'viewdisappear'
@@ -148,7 +153,51 @@
 		    vScrollBarEnabled: true,
 		    hScrollBarEnabled: true
 		});
+
 		api.parseTapmode();
+    //获取用户Id
+		api.getPrefs({
+		    key: 'personId'
+		}, function(ret, err){
+		    if( ret ){
+					// alert(ret.value);
+		      //    perId=ret.value;
+						 //获取后台数据
+						api.ajax({
+						    url: globAddress+'/searchPersonInformation',
+						    method: 'post',
+						    data: {
+						        values: {
+						            "uId": ret.value
+						        },
+						        files: {
+						            file: ''
+						        }
+						    }
+						},function(ret, err){
+						    if (ret) {
+						      // nickName.value=ret.data.ucName;
+								//	alert( JSON.stringify( ret.data.ucName ) );
+								$api.append(nickName, ret.data.uNick);
+
+								//	document.getElementById('nickName').value=ret.data.ucName;
+						    } else {
+									api.toast({
+											msg: '网络错误',
+											duration: 2000,
+											location: 'bottom'
+									});
+						    }
+						});
+
+		    }else{
+					api.toast({
+							msg: '网络错误',
+							duration: 2000,
+							location: 'bottom'
+					});
+		    }
+		});
 	}
 </script>
 

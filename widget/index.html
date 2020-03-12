@@ -64,45 +64,70 @@
 <script type="text/javascript">
 apiready = function () {
   //设置全局地址
-  var globAddress="http://192.168.2.104:8083/";
+  var globAddress="http://192.168.0.207:8083/";
   $api.setStorage('globAddress', globAddress);
-   if($api.getStorage('personalInfo')){
-            api.openSlidLayout({
-            type: 'left',
-            leftEdge:  api.winWidth*0.2,
-            fixedPane: {
-                name: 'main',
-                url: 'html/main.html'
-            },
-            slidPane: {
-                name: 'login_frame',
-                url: 'html/login_frame.html'
-            }
-        }, function (ret) {
-
-        });
-
-   }else{
-   api.openWin({
-        name: 'login',
-        url: 'html/login.html'
-    });
-    }
+  api.getPrefs({
+      key: 'personId'
+  }, function(ret, err){
+      if( ret ){
+           //alert( JSON.stringify( ret.value) );
+           if (ret.value!="") {
+             api.openWin({
+                  name: 'forme',
+                  url: 'html/forme.html'
+              });
+       }
+       else {
+         api.openWin({
+              name: 'login',
+              url: 'html/login.html'
+          });
+       }
+      }else{
+        api.openWin({
+             name: 'login',
+             url: 'html/login.html'
+         });
+      }
+  });
 }
-function gotologin(username_){
-   var username=$api.byId('username');
-    $api.val(username, username_);
-    api.alert({
-        title: 'title',
-        msg: username_,
-    }, function(ret, err) {
-        if (ret) {
-            alert(JSON.stringify(ret));
-        } else {
-            alert(JSON.stringify(err));
-        }
-    });
- }
+  //  if($api.getStorage('personalInfo')){
+  //           api.openSlidLayout({
+  //           type: 'left',
+  //           leftEdge:  api.winWidth*0.2,
+  //           fixedPane: {
+  //               name: 'main',
+  //               url: 'html/main.html'
+  //           },
+  //           slidPane: {
+  //               name: 'login_frame',
+  //               url: 'html/login_frame.html'
+  //           }
+  //       }, function (ret) {
+   //
+  //       });
+   //
+  //  }else{
+  //  api.openWin({
+  //       name: 'login',
+  //       url: 'html/login.html'
+  //   });
+  //   }
+
+// function gotologin(username_){
+//    var username=$api.byId('username');
+//     $api.val(username, username_);
+//     api.alert({
+//         title: 'title',
+//         msg: username_,
+//     }, function(ret, err) {
+//         if (ret) {
+//             alert(JSON.stringify(ret));
+//         } else {
+//             alert(JSON.stringify(err));
+//         }
+//     });
+//  }
 </script>
 <!-- <script type="text/javascript">
     apiready = function(){

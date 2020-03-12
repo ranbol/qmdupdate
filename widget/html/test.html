@@ -16,6 +16,9 @@
             <input type="file" name="file1" id="file1" value="">
             <input type="file" name="file1" id="file1" value="">
         </div>
+        <div id="nickName">
+
+        </div>
         <button type="submit" name="submit" onclick="funOff()" id="submit">提交</button>
     </body>
     <script type="text/javascript" src="../script/api.js"></script>
@@ -32,6 +35,7 @@
             // form.append("file", document.getElementById("file2").files[0]);
             // form.append("file", document.getElementById("file3").files[0]);
             // form.append("file", document.getElementById("file4").files[0]);
+            document.getElementsByName('nickname')
             $.ajax({     
                 type: 'POST',
                      url: 'http://10.76.33.140:8083/appRepairConsole',

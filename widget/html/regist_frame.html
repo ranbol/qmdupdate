@@ -127,7 +127,7 @@
     var username=$api.byId('username');
     var usernameValue=username.value;
     api.ajax({
-          url: 'http://192.168.2.104:8083/'+'appSendMessageForCodeValue',
+          url:globAddress +'appSendMessageForCodeValue',
           method: 'get',
           data: {
               values: {
@@ -140,13 +140,24 @@
       }, function(ret, err) {
           if (ret) {
              if (ret.code==0) {
-              alert(ret.msg);
-
+               api.toast({
+                   msg: ret.msg,
+                   duration: 2000,
+                   location: 'bottom'
+               });
              }else{
-              alert(ret.msg);
+               api.toast({
+                   msg: ret.msg,
+                   duration: 2000,
+                   location: 'bottom'
+               });
              }
           } else {
-              alert(JSON.stringify(err));
+            api.toast({
+                msg: '网络错误',
+                duration: 2000,
+                location: 'bottom'
+            });
           }
       });
  }
@@ -162,7 +173,7 @@
     }*/
 
   api.ajax({
-       url: 'http://192.168.2.104:8083/'+'appRegister',
+       url: globAddress+'appRegister',
        method: 'post',
        data: {
            values: {
@@ -190,7 +201,7 @@
                   //  });
                    api.openWin({
                        name: 'login',
-                       url: '../html/login_frame.html',
+                       url: '../html/login.html',
                        pageParam: {
                            'username_':username.value,
                            'password_':password.value
@@ -198,7 +209,11 @@
                    });
 
                   } else {
-                      alert(JSON.stringify(err));
+                    api.toast({
+                        msg: '网络错误',
+                        duration: 2000,
+                        location: 'bottom'
+                    });
                   }
               });
 
@@ -206,7 +221,11 @@
              alert(JSON.stringify(ret));
             }
        } else {
-           alert(JSON.stringify(err));
+         api.toast({
+             msg: '网络错误',
+             duration: 2000,
+             location: 'bottom'
+         });
        }
    });  }
 
